@@ -2,9 +2,20 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    # store number of occurrences for each number
+    occurrences = dict()
 
-    return result
+    for array in arrays:
+
+        for number in array:
+
+            if number in occurrences:
+                occurrences[number] += 1
+            else:
+                occurrences[number] = 1
+    
+    # return only the items that have an occurence equal to the length of the arrays
+    return [data[0] for data in occurrences.items() if data[1] == len(arrays)]
 
 
 if __name__ == "__main__":
